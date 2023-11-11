@@ -48,6 +48,12 @@ button:focus-visible {
 }
 button:disabled {
   color: #3a3a3a;
+  box-shadow: none;
+}
+button:disabled:focus,
+button:disabled:focus-visible,
+button:disabled:hover {
+  box-shadow: none;
 }
 
 @media (prefers-color-scheme: light) {

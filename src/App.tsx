@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 
@@ -8,6 +8,7 @@ function App() {
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isSending, setIsSending] = useState<boolean>(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   async function sendMessage() {
     try {
@@ -24,6 +25,7 @@ function App() {
         setSuccessMessage('');
         setMessage('');
         setIsSending(false);
+        focusOnTextArea();
       }, 2000);
     } catch (error) {
       console.log(error);
@@ -49,6 +51,12 @@ function App() {
       sendMessage();
   }
 
+  function focusOnTextArea() {
+    if (textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }
+
   return (
     <body>
       <h1>Ntfy</h1>
@@ -61,6 +69,7 @@ function App() {
           onChange={(e) => handleChannelChange(e)}
         />
         <textarea
+          ref={textareaRef}
           rows={4}
           cols={50}
           className="textarea-text"

@@ -1,0 +1,30 @@
+#root {
+  margin: 0 auto;
+  height: 100dvh;
+  width: min(100dvw, 520px);
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-text,
+.textarea-text {
+  margin: 1rem 0;
+  padding: 0.6rem;
+}
+
+.textarea-text {
+  resize: vertical;
+}
+
+.toast {
+  position: relative;
+  height: 1rem;
+}
